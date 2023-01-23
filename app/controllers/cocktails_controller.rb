@@ -1,4 +1,4 @@
-require_relative "../app/models/cocktail"
+require_relative "../models/cocktail"
 
 class CocktailsController < ApplicationController
   before_action :set_cocktail, only: %i[ create show ]
