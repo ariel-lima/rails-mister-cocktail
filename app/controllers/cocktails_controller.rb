@@ -1,5 +1,3 @@
-require_relative "../models/cocktail"
-
 class CocktailsController < ApplicationController
   before_action :set_cocktail, only: %i[ create show ]
 
@@ -7,8 +5,13 @@ class CocktailsController < ApplicationController
     @cocktails = Cocktail.all
   end
 
+
   def new
     @cocktail = Cocktail.new
+  end
+
+  def show
+    @cocktail = Cocktail.find(params[:id])
   end
 
   def create
@@ -17,11 +20,6 @@ class CocktailsController < ApplicationController
     redirect_to cocktail_path(@cocktail), notice: "Cocktail was successfully created."
   end
 
-  def show
-  end
-
-  def update
-  end
 
   private
 
@@ -32,5 +30,6 @@ class CocktailsController < ApplicationController
   def cocktail_params
     params.require(:name).permit(:dose, :ingredient)
   end
+
 
 end
