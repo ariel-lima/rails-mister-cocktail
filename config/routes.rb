@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :doses, only: [:destroy]
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :cocktails
 end
